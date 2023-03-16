@@ -27,14 +27,17 @@ public class Ejercicio_11 {
     public static void main(String[] args) {
         Scanner leer = new Scanner (System.in);
         String frase_concat = "";
-        String frase;
+        String frase, fin;
         System.out.println("Ingrese una frase");
+        int longitud;
       
         do {
         frase = leer.next();
         frase_concat= frase_concat.concat(frase);
-        
-        }while (!frase.equals("."));
+        frase_concat=frase_concat.concat(" ");
+        longitud= frase.length();
+        fin= frase.substring(longitud-1,longitud);
+        }while (!fin.equals("."));
         
         String convertida = conver (frase_concat);
         System.out.println(convertida);
@@ -45,6 +48,9 @@ public class Ejercicio_11 {
         String letra;
         for (int i=1; i<=longitud;i++){
            letra= frase_concat.substring(i-1,i);
+           if (letra.equals(" ")){
+               letra=" ";
+           }
            switch (letra) {
                case "a": letra="@";
                break;
